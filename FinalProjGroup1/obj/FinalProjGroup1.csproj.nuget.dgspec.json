@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zacha\\source\\repos\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj": {}
+    "C:\\Users\\colby\\Documents\\GitHub\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zacha\\source\\repos\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj": {
+    "C:\\Users\\colby\\Documents\\GitHub\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zacha\\source\\repos\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj",
+        "projectUniqueName": "C:\\Users\\colby\\Documents\\GitHub\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj",
         "projectName": "FinalProjGroup1",
-        "projectPath": "C:\\Users\\zacha\\source\\repos\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj",
-        "packagesPath": "C:\\Users\\zacha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zacha\\source\\repos\\FinalProjGroup1\\FinalProjGroup1\\obj\\",
+        "projectPath": "C:\\Users\\colby\\Documents\\GitHub\\FinalProjGroup1\\FinalProjGroup1\\FinalProjGroup1.csproj",
+        "packagesPath": "C:\\Users\\colby\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colby\\Documents\\GitHub\\FinalProjGroup1\\FinalProjGroup1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\zacha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\colby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -43,6 +43,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "NSwag.AspNetCore": {
+              "target": "Package",
+              "version": "[13.14.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
