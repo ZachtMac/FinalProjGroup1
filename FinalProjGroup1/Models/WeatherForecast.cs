@@ -1,6 +1,6 @@
 using System;
 
-namespace FinalProjGroup1
+namespace FinalProjGroup1.Models
 {
     public class WeatherForecast
     {
