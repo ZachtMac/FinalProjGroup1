@@ -31,15 +31,26 @@ namespace FinalProjGroup1
 
             // Register the Swagger services
             services.AddSwaggerDocument();
+
+            //Register the Database
+            services.AddDbContext<StudentInfoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("StudentInfoContext")));
+            services.AddScoped<StudentInfoDatabase>();
+            services.AddControllers();
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, StudentInfoContext ctx)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
+
+            ctx.Database.Migrate();
 
             app.UseHttpsRedirection();
 
@@ -47,8 +58,6 @@ namespace FinalProjGroup1
 
             app.UseAuthorization();
 
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {
