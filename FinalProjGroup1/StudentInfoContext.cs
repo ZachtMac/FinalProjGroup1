@@ -15,8 +15,9 @@ namespace FinalProjGroup1
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder model)
-        //{
+        
+        protected override void OnModelCreating(ModelBuilder model)
+        {
             /*model.Entity<StudentInfo>(entity =>
             {
                 entity.HasData(new StudentInfo
@@ -28,9 +29,9 @@ namespace FinalProjGroup1
                     ProgramYear = 1
                 });
             });*/
-        //}
+        }
 
-        public DbSet<StudentInfo> Student { get; set; } = null!;
+        public DbSet<StudentInfo> Student { get; set; }
 
 
 

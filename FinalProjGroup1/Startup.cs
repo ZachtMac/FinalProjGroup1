@@ -37,7 +37,9 @@ namespace FinalProjGroup1
                 options.UseSqlServer(Configuration.GetConnectionString("StudentInfoContext")));
             services.AddScoped<StudentInfoDatabase>();
             services.AddControllers();
-            services.AddSwaggerDocument();
+            
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,9 +50,12 @@ namespace FinalProjGroup1
                 app.UseDeveloperExceptionPage();
                 app.UseOpenApi();
                 app.UseSwaggerUi3();
+                app.UseDeveloperExceptionPage();
+                
+                
             }
 
-            ctx.Database.Migrate();
+            //ctx.Database.Migrate();
 
             app.UseHttpsRedirection();
 

@@ -27,7 +27,7 @@ namespace FinalProjGroup1
             }
             else
             {
-                return _context.Student.Where(x => x.StudentID == id);
+                return _context.Student.Where(x => x.Id == id);
             }
         }
 
