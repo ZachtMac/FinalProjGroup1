@@ -18,20 +18,21 @@ namespace FinalProjGroup1
         
         protected override void OnModelCreating(ModelBuilder model)
         {
-            /*model.Entity<StudentInfo>(entity =>
+            model.Entity<StudentInfo>(entity =>
             {
                 entity.HasData(new StudentInfo
                 {
-                    StudentID = 1,
+                    Id = 1,
                     FullName = "Test Subject",
                     BirthDate = DateTime.Now,
                     Program = "TestSubject",
                     ProgramYear = 1
                 });
-            });*/
+            });
         }
 
         public DbSet<StudentInfo> Student { get; set; }
+        
 
 
 

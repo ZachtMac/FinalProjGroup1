@@ -50,6 +50,53 @@ namespace FinalProjGroup1
             return _context.Student.ToList();
         }
 
+        public void AddNewPerson(StudentInfo person)
+        {
+            try
+            {
+                _context.Student.Add(person);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        public StudentInfo DeletePerson(int? id)
+        {
+            var deletePersonId = _context.Student.FirstOrDefault(x => x.Id == id);
+            if (deletePersonId != null)
+            {
+                _context.Remove(deletePersonId);
+                _context.SaveChanges();
+            }
+            return deletePersonId;
+        }
+
+        public StudentInfo UpdateStudent(StudentInfo student)
+        {
+
+            
+
+
+            var updatedPerson = _context.Student.FirstOrDefault(x => x.Id == student.Id);
+            if (updatedPerson != null)
+            {
+                
+                    updatedPerson.BirthDate = student.BirthDate;
+                    updatedPerson.FullName = student.FullName;
+                    updatedPerson.Id = student.Id;
+                    updatedPerson.Program = student.Program;
+                    updatedPerson.ProgramYear = student.ProgramYear;
+                    _context.SaveChanges();
+                
+                
+            }
+            return updatedPerson;
+        }
+
 
 
         
