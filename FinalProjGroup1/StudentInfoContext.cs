@@ -16,22 +16,39 @@ namespace FinalProjGroup1
         }
 
         
-        protected override void OnModelCreating(ModelBuilder model)
+        /*protected override void OnModelCreating(ModelBuilder model)
         {
             model.Entity<StudentInfo>(entity =>
             {
                 entity.HasData(new StudentInfo
                 {
                     Id = 1,
-                    FullName = "Test Subject",
+                    FullName = "Zach McIntosh",
                     BirthDate = DateTime.Now,
-                    Program = "TestSubject",
-                    ProgramYear = 1
+                    Program = "Cyber",
+                    ProgramYear = 2
+                });
+                entity.HasData(new StudentInfo
+                {
+                    Id = 2,
+                    FullName = "Ben Hicks",
+                    BirthDate = DateTime.Now,
+                    Program = "Software",
+                    ProgramYear = 2
+                });
+                entity.HasData(new StudentInfo
+                {
+                    Id = 3,
+                    FullName = "Colby Nolasco",
+                    BirthDate = DateTime.Now,
+                    Program = "Software",
+                    ProgramYear = 3
                 });
             });
-        }
+        }*/
 
         public DbSet<StudentInfo> Student { get; set; }
+
         
 
 

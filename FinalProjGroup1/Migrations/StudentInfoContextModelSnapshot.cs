@@ -41,6 +41,32 @@ namespace FinalProjGroup1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 605, DateTimeKind.Local).AddTicks(5891),
+                            FullName = "Zach McIntosh",
+                            Program = "Cyber",
+                            ProgramYear = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 608, DateTimeKind.Local).AddTicks(3928),
+                            FullName = "Ben Hicks",
+                            Program = "Software",
+                            ProgramYear = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 608, DateTimeKind.Local).AddTicks(4048),
+                            FullName = "Colby Nolasco",
+                            Program = "Software",
+                            ProgramYear = 3
+                        });
                 });
 #pragma warning restore 612, 618
         }
