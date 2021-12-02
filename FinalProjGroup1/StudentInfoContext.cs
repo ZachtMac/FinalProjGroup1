@@ -49,7 +49,7 @@ namespace FinalProjGroup1
 
         public DbSet<StudentInfo> Student { get; set; }
 
-        
+        public DbSet<StudentFood> StudentFood { get; set; }
 
 
 

@@ -19,6 +19,30 @@ namespace FinalProjGroup1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FinalProjGroup1.Models.StudentFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Breakfast")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Dinner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lunch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StudentFood");
+                });
+
             modelBuilder.Entity("FinalProjGroup1.Models.StudentInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -41,32 +65,6 @@ namespace FinalProjGroup1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 605, DateTimeKind.Local).AddTicks(5891),
-                            FullName = "Zach McIntosh",
-                            Program = "Cyber",
-                            ProgramYear = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 608, DateTimeKind.Local).AddTicks(3928),
-                            FullName = "Ben Hicks",
-                            Program = "Software",
-                            ProgramYear = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BirthDate = new DateTime(2021, 11, 23, 13, 20, 56, 608, DateTimeKind.Local).AddTicks(4048),
-                            FullName = "Colby Nolasco",
-                            Program = "Software",
-                            ProgramYear = 3
-                        });
                 });
 #pragma warning restore 612, 618
         }
