@@ -16,7 +16,7 @@ namespace FinalProjGroup1
         }
 
         
-        /*protected override void OnModelCreating(ModelBuilder model)
+        protected override void OnModelCreating(ModelBuilder model)
         {
             model.Entity<StudentInfo>(entity =>
             {
@@ -45,7 +45,19 @@ namespace FinalProjGroup1
                     ProgramYear = 3
                 });
             });
-        }*/
+
+            model.Entity<StudentFood>(entity =>
+            {
+                entity.HasData(new StudentFood
+                {
+                    Id = 1,
+                    FullName = "Colby Nolasco",
+                    Breakfast = "Poptarts",
+                    Lunch = "Hot Pockets",
+                    Dinner = "Chicken"
+                });
+            });
+        }
 
         public DbSet<StudentInfo> Student { get; set; }
 

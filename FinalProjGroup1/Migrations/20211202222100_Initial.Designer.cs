@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProjGroup1.Migrations
 {
     [DbContext(typeof(StudentInfoContext))]
-    [Migration("20211202220811_Initia")]
-    partial class Initia
+    [Migration("20211202222100_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,6 +43,16 @@ namespace FinalProjGroup1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StudentFood");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Breakfast = "Poptarts",
+                            Dinner = "Chicken",
+                            FullName = "Colby Nolasco",
+                            Lunch = "Hot Pockets"
+                        });
                 });
 
             modelBuilder.Entity("FinalProjGroup1.Models.StudentInfo", b =>
@@ -67,6 +77,32 @@ namespace FinalProjGroup1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 159, DateTimeKind.Local).AddTicks(549),
+                            FullName = "Zach McIntosh",
+                            Program = "Cyber",
+                            ProgramYear = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4104),
+                            FullName = "Ben Hicks",
+                            Program = "Software",
+                            ProgramYear = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4256),
+                            FullName = "Colby Nolasco",
+                            Program = "Software",
+                            ProgramYear = 3
+                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -77,10 +77,6 @@ namespace FinalProjGroup1
 
         public StudentInfo UpdateStudent(StudentInfo student)
         {
-
-            
-
-
             var updatedPerson = _context.Student.FirstOrDefault(x => x.Id == student.Id);
             if (updatedPerson != null)
             {
@@ -133,11 +129,11 @@ namespace FinalProjGroup1
             return _context.StudentFood.ToList();
         }
 
-        public void AddNewStudentFood(StudentFood person)
+        public void AddNewStudentFood(StudentFood studentFood)
         {
             try
             {
-                _context.StudentFood.Add(person);
+                _context.StudentFood.Add(studentFood);
                 _context.SaveChanges();
             }
             catch (Exception e)
@@ -158,18 +154,18 @@ namespace FinalProjGroup1
             return deletePersonId;
         }
 
-        public StudentFood UpdateStudentFood(StudentFood student)
+        public StudentFood UpdateStudentFood(StudentFood studentFood)
         {
 
-            var updatedPerson = _context.StudentFood.FirstOrDefault(x => x.Id == student.Id);
+            var updatedPerson = _context.StudentFood.FirstOrDefault(x => x.Id == studentFood.Id);
             if (updatedPerson != null)
             {
 
-                updatedPerson.FullName = student.FullName;
-                updatedPerson.Id = student.Id;
-                updatedPerson.Breakfast = student.Breakfast;
-                updatedPerson.Lunch = student.Lunch;
-                updatedPerson.Dinner = student.Dinner;
+                updatedPerson.FullName = studentFood.FullName;
+                updatedPerson.Id = studentFood.Id;
+                updatedPerson.Breakfast = studentFood.Breakfast;
+                updatedPerson.Lunch = studentFood.Lunch;
+                updatedPerson.Dinner = studentFood.Dinner;
                 _context.SaveChanges();
 
 

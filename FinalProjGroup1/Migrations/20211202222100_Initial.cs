@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinalProjGroup1.Migrations
 {
-    public partial class Initia : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,6 +38,21 @@ namespace FinalProjGroup1.Migrations
                 {
                     table.PrimaryKey("PK_StudentFood", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Student",
+                columns: new[] { "Id", "BirthDate", "FullName", "Program", "ProgramYear" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2021, 12, 2, 17, 21, 0, 159, DateTimeKind.Local).AddTicks(549), "Zach McIntosh", "Cyber", 2 },
+                    { 2, new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4104), "Ben Hicks", "Software", 2 },
+                    { 3, new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4256), "Colby Nolasco", "Software", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "StudentFood",
+                columns: new[] { "Id", "Breakfast", "Dinner", "FullName", "Lunch" },
+                values: new object[] { 1, "Poptarts", "Chicken", "Colby Nolasco", "Hot Pockets" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
