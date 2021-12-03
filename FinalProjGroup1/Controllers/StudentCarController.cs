@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FinalProjGroup1.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FinalProjGroup1.Controllers
 {
@@ -29,7 +34,7 @@ namespace FinalProjGroup1.Controllers
             [HttpGet("id")]
             public IActionResult GetStudentById(int? id)
             {
-                var student = _db.GetStudentById(id);
+                var student = _db.GetStudentCarById(id);
                 if (student.ToList().Count() == 0)
                 {
                     return NotFound();
@@ -44,7 +49,7 @@ namespace FinalProjGroup1.Controllers
             [HttpGet("name")]
             public IActionResult GetStudentByName(string? name)
             {
-                var student = _db.GetStudentByFullName(name);
+                var student = _db.GetStudentCarByMake(name);
                 if (name == null || student.ToList().Count() == 0)
                 {
                     return NotFound();
@@ -58,11 +63,11 @@ namespace FinalProjGroup1.Controllers
             }
 
             [HttpPost]
-            public IActionResult AddNewPerson(StudentInfo person)
+            public IActionResult AddNewPerson(StudentCar person)
             {
                 try
                 {
-                    _db.AddNewPerson(person);
+                    _db.AddNewStudentCar(person);
                 }
                 catch (Exception e)
                 {
@@ -81,12 +86,12 @@ namespace FinalProjGroup1.Controllers
 
                 try
                 {
-                    var deletedStudent = _db.DeletePerson(id);
+                    var deletedStudent = _db.DeleteStudentCar(id);
                     if (deletedStudent == null)
                     {
                         return NotFound();
                     }
-                    return Ok(deletedStudent.FullName);
+                    return Ok(deletedStudent.studentName);
                 }
                 catch (Exception)
                 {
@@ -97,10 +102,10 @@ namespace FinalProjGroup1.Controllers
             }
 
             [HttpPut]
-            public IActionResult UpdateStudent(int? id, [FromBody] StudentInfo student)
+            public IActionResult UpdateStudent(int? id, [FromBody] StudentCar student)
             {
 
-                var result = _db.UpdateStudent(student);
+                var result = _db.UpdateStudentCar(student);
                 if (result == null)
                 {
                     return NotFound();

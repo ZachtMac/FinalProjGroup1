@@ -256,45 +256,45 @@ namespace FinalProjGroup1
 
         public void AddStudent(StudentCar addedStudent)
         {
-            _context.StudentGame.Add(addedStudent);
+            _context.StudentCar.Add(addedStudent);
         }
 
-        public IEnumerable<StudentGame> GetStudentGameById(int? id)
+        public IEnumerable<StudentCar> GetStudentCarById(int? id)
         {
             if (id == null || id == 0)
             {
-                return _context.StudentGame.Take(5);
+                return _context.StudentCar.Take(5);
             }
             else
             {
-                return _context.StudentGame.Where(x => x.Id == id);
+                return _context.StudentCar.Where(x => x.Id == id);
             }
         }
 
-        public IEnumerable<StudentGame> GetStudentGameByCreatorName(string? name)
+        public IEnumerable<StudentCar> GetStudentCarByMake(string? make)
         {
-            if (name == null)
+            if (make == null)
             {
                 throw new ArgumentException(
-                    $"No name provided, showing top result");
-                return _context.StudentGame.Take(1);
+                    $"No make provided, showing top result");
+                return _context.StudentCar.Take(1);
             }
             else
             {
-                return _context.StudentGame.Where(x => x.CreatorName == name);
+                return _context.StudentCar.Where(x => x.carMake == make);
             }
         }
 
-        public IEnumerable<StudentGame> GetAllStudentGames()
+        public IEnumerable<StudentCar> GetAllStudentCars()
         {
-            return _context.StudentGame.ToList();
+            return _context.StudentCar.ToList();
         }
 
-        public void AddNewStudentGame(StudentGame studentGame)
+        public void AddNewStudentCar(StudentCar studentCar)
         {
             try
             {
-                _context.StudentGame.Add(studentGame);
+                _context.StudentCar.Add(studentCar);
                 _context.SaveChanges();
             }
             catch (Exception e)
@@ -304,9 +304,9 @@ namespace FinalProjGroup1
             }
         }
 
-        public StudentGame DeleteStudentGame(int? id)
+        public StudentCar DeleteStudentCar(int? id)
         {
-            var deletePersonId = _context.StudentGame.FirstOrDefault(x => x.Id == id);
+            var deletePersonId = _context.StudentCar.FirstOrDefault(x => x.Id == id);
             if (deletePersonId != null)
             {
                 _context.Remove(deletePersonId);
@@ -315,18 +315,18 @@ namespace FinalProjGroup1
             return deletePersonId;
         }
 
-        public StudentGame UpdateStudentGame(StudentGame studentGame)
+        public StudentCar UpdateStudentCar(StudentCar studentCar)
         {
 
-            var updatedPerson = _context.StudentGame.FirstOrDefault(x => x.Id == studentGame.Id);
+            var updatedPerson = _context.StudentCar.FirstOrDefault(x => x.Id == studentCar.Id);
             if (updatedPerson != null)
             {
 
-                updatedPerson.CreatorName = studentGame.CreatorName;
-                updatedPerson.Id = studentGame.Id;
-                updatedPerson.Version = studentGame.Version;
-                updatedPerson.Title = studentGame.Title;
-                updatedPerson.Genre = studentGame.Genre;
+                updatedPerson.studentName = studentCar.studentName;
+                updatedPerson.Id = studentCar.Id;
+                updatedPerson.carMake= studentCar.carMake;
+                updatedPerson.carModel = studentCar.carModel;
+                updatedPerson.carYear = studentCar.carYear;
                 _context.SaveChanges();
 
 
