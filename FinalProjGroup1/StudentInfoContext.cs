@@ -57,11 +57,25 @@ namespace FinalProjGroup1
                     Dinner = "Chicken"
                 });
             });
+
+            model.Entity<StudentGame>(entity =>
+            {
+                entity.HasData(new StudentGame
+                {
+                    Id = 1,
+                    CreatorName = "NinjaKiwi",
+                    Title = "Bloons TD 6",
+                    Genre = "Strategy",
+                    Version = "28.3"
+                });
+            });
         }
 
         public DbSet<StudentInfo> Student { get; set; }
 
         public DbSet<StudentFood> StudentFood { get; set; }
+
+        public DbSet<StudentGame> StudentGame { get; set; }
 
 
 

@@ -53,6 +53,40 @@ namespace FinalProjGroup1.Migrations
                         });
                 });
 
+            modelBuilder.Entity("FinalProjGroup1.Models.StudentGame", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Version")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StudentGame");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatorName = "NinjaKiwi",
+                            Genre = "Strategy",
+                            Title = "Bloons TD 6",
+                            Version = "28.3"
+                        });
+                });
+
             modelBuilder.Entity("FinalProjGroup1.Models.StudentInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -80,7 +114,7 @@ namespace FinalProjGroup1.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 159, DateTimeKind.Local).AddTicks(549),
+                            BirthDate = new DateTime(2021, 12, 3, 14, 40, 32, 805, DateTimeKind.Local).AddTicks(936),
                             FullName = "Zach McIntosh",
                             Program = "Cyber",
                             ProgramYear = 2
@@ -88,7 +122,7 @@ namespace FinalProjGroup1.Migrations
                         new
                         {
                             Id = 2,
-                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4104),
+                            BirthDate = new DateTime(2021, 12, 3, 14, 40, 32, 806, DateTimeKind.Local).AddTicks(9882),
                             FullName = "Ben Hicks",
                             Program = "Software",
                             ProgramYear = 2
@@ -96,7 +130,7 @@ namespace FinalProjGroup1.Migrations
                         new
                         {
                             Id = 3,
-                            BirthDate = new DateTime(2021, 12, 2, 17, 21, 0, 162, DateTimeKind.Local).AddTicks(4256),
+                            BirthDate = new DateTime(2021, 12, 3, 14, 40, 32, 807, DateTimeKind.Local).AddTicks(52),
                             FullName = "Colby Nolasco",
                             Program = "Software",
                             ProgramYear = 3

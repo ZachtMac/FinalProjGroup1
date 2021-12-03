@@ -80,15 +80,15 @@ namespace FinalProjGroup1
             var updatedPerson = _context.Student.FirstOrDefault(x => x.Id == student.Id);
             if (updatedPerson != null)
             {
-                
-                    updatedPerson.BirthDate = student.BirthDate;
-                    updatedPerson.FullName = student.FullName;
-                    updatedPerson.Id = student.Id;
-                    updatedPerson.Program = student.Program;
-                    updatedPerson.ProgramYear = student.ProgramYear;
-                    _context.SaveChanges();
-                
-                
+
+                updatedPerson.BirthDate = student.BirthDate;
+                updatedPerson.FullName = student.FullName;
+                updatedPerson.Id = student.Id;
+                updatedPerson.Program = student.Program;
+                updatedPerson.ProgramYear = student.ProgramYear;
+                _context.SaveChanges();
+
+
             }
             return updatedPerson;
         }
@@ -173,6 +173,86 @@ namespace FinalProjGroup1
             return updatedPerson;
         }
 
+        public void AddStudent(StudentGame addedStudent)
+        {
+            _context.StudentGame.Add(addedStudent);
+        }
+
+        public IEnumerable<StudentGame> GetStudentGameById(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return _context.StudentGame.Take(5);
+            }
+            else
+            {
+                return _context.StudentGame.Where(x => x.Id == id);
+            }
+        }
+
+        public IEnumerable<StudentGame> GetStudentGameByCreatorName(string? name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentException(
+                    $"No name provided, showing top result");
+                return _context.StudentGame.Take(1);
+            }
+            else
+            {
+                return _context.StudentGame.Where(x => x.CreatorName == name);
+            }
+        }
+
+        public IEnumerable<StudentGame> GetAllStudentGames()
+        {
+            return _context.StudentGame.ToList();
+        }
+
+        public void AddNewStudentGame(StudentGame studentGame)
+        {
+            try
+            {
+                _context.StudentGame.Add(studentGame);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        public StudentGame DeleteStudentGame(int? id)
+        {
+            var deletePersonId = _context.StudentGame.FirstOrDefault(x => x.Id == id);
+            if (deletePersonId != null)
+            {
+                _context.Remove(deletePersonId);
+                _context.SaveChanges();
+            }
+            return deletePersonId;
+        }
+
+        public StudentGame UpdateStudentGame(StudentGame studentGame)
+        {
+
+            var updatedPerson = _context.StudentGame.FirstOrDefault(x => x.Id == studentGame.Id);
+            if (updatedPerson != null)
+            {
+
+                updatedPerson.CreatorName = studentGame.CreatorName;
+                updatedPerson.Id = studentGame.Id;
+                updatedPerson.Version = studentGame.Version;
+                updatedPerson.Title = studentGame.Title;
+                updatedPerson.Genre = studentGame.Genre;
+                _context.SaveChanges();
+
+
+            }
+            return updatedPerson;
+        }
+
 
 
 
@@ -180,3 +260,5 @@ namespace FinalProjGroup1
 
     }
 }
+
+
