@@ -44,6 +44,15 @@ namespace FinalProjGroup1
                     Program = "Software",
                     ProgramYear = 3
                 });
+                entity.HasData(new StudentInfo
+                {
+                    Id = 4,
+                    FullName = "Saif Bayyari",
+                    BirthDate = DateTime.Now,
+                    Program = "Software",
+                    ProgramYear = 2
+                });
+
             });
 
             model.Entity<StudentFood>(entity =>
@@ -69,6 +78,18 @@ namespace FinalProjGroup1
                     Version = "28.3"
                 });
             });
+
+            model.Entity<StudentCar>(entity =>
+            {
+                entity.HasData(new StudentCar
+                {
+                    Id = 1,
+                    studentName = "Saif Bayyari",
+                    carMake = "Nissan",
+                    carModel = "200 SX",
+                    carYear = "1998"
+                });
+            });
         }
 
         public DbSet<StudentInfo> Student { get; set; }
@@ -76,6 +97,8 @@ namespace FinalProjGroup1
         public DbSet<StudentFood> StudentFood { get; set; }
 
         public DbSet<StudentGame> StudentGame { get; set; }
+
+        public DbSet<StudentCar> StudentCar { get; set; }
 
 
 
